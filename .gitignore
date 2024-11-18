@@ -61,6 +61,7 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 
-# Env file(s)
+# Env/Dev file(s)
 .env
 *.xcconfig
+Info.plist
