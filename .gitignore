@@ -1,0 +1,59 @@
+# Xcode
+DerivedData/
+build/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+*.xccheckout
+*.xcscmblueprint
+
+# Configuration files
+*.xcconfig
+
+# Env files
+*.env
+
+# Plists
+*.plist
+
+# XCodeProj
+*.xcodeproj
+
+# Logs
+*.log
+
+# Temporary files
+*.swp
+*.lock
+*.xcscmblueprint
+
+# Scheme management
+xcshareddata/xcschemes/*
+!xcshareddata/xcschemes/*.xcscheme
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# Swift Package Manager
+.swiftpm/
+Package.resolved
+
+# Archives
+*.xcarchive
+
+# Fastlane (if applicable)
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+<<<<<<< HEAD
+fastlane/test_output
+
+# Env file(s)
+.env
+*.xcconfig
