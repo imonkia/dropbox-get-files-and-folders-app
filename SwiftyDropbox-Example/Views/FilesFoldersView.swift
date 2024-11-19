@@ -9,11 +9,13 @@ import SwiftUI
 import SwiftyDropbox
 
 struct FilesFoldersView: View {
-    @StateObject private var viewModel = FilesFoldersViewModel()
+    // State object instance of FilesFolders ViewModel class
+    @StateObject private var filesFoldersViewModel = FilesFoldersViewModel()
     
     var body: some View {
         VStack {
-            List(viewModel.foldersMetadata) {
+            // Create a list of returned files and folders' paths
+            List(filesFoldersViewModel.foldersMetadata) {
                 folderMetadata in
                 VStack(alignment: .leading) {
                     Text(folderMetadata.pathLower)
@@ -23,7 +25,8 @@ struct FilesFoldersView: View {
             Button(action: {
                 Task {
                     do {
-                        try viewModel.getFoldersAndFiles()
+                        // Function to handle the API request using the SDK
+                        try filesFoldersViewModel.getFoldersAndFiles()
                     } catch {
                         print("An error occurred")
                     }

@@ -9,6 +9,7 @@ import SwiftUI
 import SwiftyDropbox
 
 struct ContentView: View {
+    // State variables
     @State var isAuthenticated: Bool = false
     
     var body: some View {
@@ -30,7 +31,6 @@ struct ContentView: View {
             .padding()
             .onOpenURL {
                 url in
-                print("url: \(url)")
                 let oauthCompletion: DropboxOAuthCompletion = {
                     if let authResult = $0 {
                         switch authResult {
@@ -47,7 +47,7 @@ struct ContentView: View {
             }
         }
     }
-    
+    // Function to handle DBX authentication
     func dbxLogin() {
         let scopeRequest = ScopeRequest(scopeType: .user, scopes: [], includeGrantedScopes: false)
         DropboxClientsManager.authorizeFromControllerV2(
@@ -58,6 +58,7 @@ struct ContentView: View {
             scopeRequest: scopeRequest
         )
     }
+    
 }
 
 #Preview {

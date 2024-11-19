@@ -8,21 +8,26 @@
 import SwiftUI
 import SwiftyDropbox
 
+// Custom struct to store the UID and "pathLower" property of each entry
 struct FolderMetadataItem: Codable, Identifiable {
     let id: String
     let pathLower: String
 }
 
+// DBX client instance
 let client = DropboxClientsManager.authorizedClient
+
 
 @MainActor
 class FilesFoldersViewModel: ObservableObject {
+    // Variable to watch for changes
     @Published var foldersMetadata: [FolderMetadataItem] = []
     
     private var hasMore: Bool = false
     private var cursor: String = ""
     private var counter: Int = 0
 
+    // Function to loop through received entries from the API
     private func loopThroughEntries(response: Files.ListFolderResult) -> [FolderMetadataItem] {
         hasMore = response.hasMore ? true : false
         cursor = !response.cursor.isEmpty ? response.cursor : ""
@@ -38,11 +43,14 @@ class FilesFoldersViewModel: ObservableObject {
         return foldersMetadata
     }
 
+    // Function to send request to the API using the SDK
     func getFoldersAndFiles() throws {
         client?.files.listFolder(path: "", recursive: true, includeDeleted: false).response {
             response, error in
             if let response = response {
                 _ = self.loopThroughEntries(response: response)
+                // For testing: the while loop is set to stop when counter reaches < 5
+                // This condition (counter < 5) can be removed to retrieve ALL files and folders
                 while (self.hasMore && self.counter < 5) {
                     self.counter += 1
                     client?.files.listFolderContinue(cursor: self.cursor).response {
