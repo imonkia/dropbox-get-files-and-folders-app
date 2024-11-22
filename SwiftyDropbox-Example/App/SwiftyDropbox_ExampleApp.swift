@@ -11,6 +11,7 @@ import SwiftyDropbox
 @main
 struct SwiftyDropbox_ExampleApp: App {
     init() {
+        // Instantiate DBX client
         DropboxClientsManager.setupWithAppKey(Environment.appKey)
     }
     

@@ -9,36 +9,43 @@ import SwiftUI
 import SwiftyDropbox
 
 struct FilesFoldersView: View {
+    // State variables
+    @State private var isDisabled: Bool = false
+    
     // State object instance of FilesFolders ViewModel class
     @StateObject private var filesFoldersViewModel = FilesFoldersViewModel()
     
+    
     var body: some View {
         VStack {
-            // Create a list of returned files and folders' paths
-            List(filesFoldersViewModel.foldersMetadata) {
-                folderMetadata in
+            List(Array(Set(filesFoldersViewModel.metadataItems)), id: \.id) {
+                metadataItem in
                 VStack(alignment: .leading) {
-                    Text(folderMetadata.pathLower)
+                    Text(metadataItem.pathLower)
                         .font(.system(size: 14))
                 }
             }
+            .padding(.top)
             Button(action: {
                 Task {
                     do {
                         // Function to handle the API request using the SDK
                         try filesFoldersViewModel.getFoldersAndFiles()
+                        isDisabled = true
                     } catch {
                         print("An error occurred")
+                        isDisabled = true
                     }
                 }
             }) {
-                Text("Fetch")
+                Text("List Files and Folders")
                     .frame(minWidth: 100)
                     .padding()
-                    .background(Color.blue)
+                    .background(isDisabled ? Color.gray : Color.blue)
                     .foregroundColor(.white)
             }
             .cornerRadius(10)
+            .disabled(isDisabled)
         }
     }
 }
