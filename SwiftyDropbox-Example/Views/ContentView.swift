@@ -7,10 +7,13 @@
 
 import SwiftUI
 import SwiftyDropbox
+import AlertToast
 
 struct ContentView: View {
     // State variables
     @State var isAuthenticated: Bool = false
+    @State var showAlert: Bool = false
+    @State var authErrorMessage: String = ""
     
     var body: some View {
         if(isAuthenticated) {
@@ -29,6 +32,19 @@ struct ContentView: View {
                 .cornerRadius(10)
             }
             .padding()
+            .toast(
+                isPresenting: $showAlert,
+                duration: 2,
+                tapToDismiss: true,
+                alert: {
+                    AlertToast(
+                        displayMode: .hud,
+                        type: .error(Color.red),
+                        title: "Authorization Error",
+                        subTitle: authErrorMessage
+                    )
+                }
+            )
             .onOpenURL {
                 url in
                 let oauthCompletion: DropboxOAuthCompletion = {
@@ -37,9 +53,11 @@ struct ContentView: View {
                         case .success:
                             isAuthenticated = true
                         case .cancel:
-                            print("Client cancelled")
+                            showAlert = true
+                            authErrorMessage = "Client cancelled."
                         case .error(_, let description):
-                            print("Error authorizing: \(String(describing: description))")
+                            showAlert = true
+                            authErrorMessage = "\(String(describing: description))."
                         }
                     }
                 }

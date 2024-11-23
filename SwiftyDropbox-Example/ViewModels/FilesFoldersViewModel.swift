@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftyDropbox
 
-// Custom struct to store the UID and "pathLower" property of each entry
+// Custom struct to store the UID and "pathLower" properties of each entry
 struct MetadataItem: Identifiable, Hashable {
     let id: String
     let pathLower: String
@@ -20,7 +20,7 @@ let client = DropboxClientsManager.authorizedClient
 
 @MainActor
 class FilesFoldersViewModel: ObservableObject {
-    // Variable to watch for changes
+    // Obersvable property
     @Published var metadataItems: [MetadataItem] = []
     
     private var hasMore: Bool = false
@@ -44,74 +44,102 @@ class FilesFoldersViewModel: ObservableObject {
         
         return metadataItemsTemp
     }
-
-    // Function to send request to the API using the SDK
-    func getFoldersAndFiles() throws {
-        client?.files.listFolder(path: "", recursive: true, includeDeleted: false).response {
-            response, error in
-            if let response = response {
-                self.metadataItems = self.loopThroughEntries(response: response)
-                // For testing: the while loop is set to stop when counter reaches < 5
-                // This condition (counter < 5) can be removed to retrieve ALL files and folders
-                while (self.hasMore && self.counter < 5) {
-                    self.counter += 1
-                    client?.files.listFolderContinue(cursor: self.cursor).response {
-                        response, error in
-                        if let response = response {
-                            self.metadataItems.append(contentsOf: self.loopThroughEntries(response: response))
-                        }
-                    }
-                }
-            } else if let error = error {
-                switch error as CallError {
-                case .routeError(let boxed, _, _, let requestId):
-                    print("RouteError:[\(String(describing: requestId))]:")
-                    
-                    switch boxed.unboxed as Files.ListFolderError {
-                    case .path(let lookupError):
-                        switch lookupError {
-                        case .malformedPath:
-                            print("Malformed path")
-                        case .notFound:
-                            print("There is nothing at the given path")
-                        case .notFile:
-                            print("Not a file")
-                        case .notFolder:
-                            print("Not a folder")
-                        case .other:
-                            print("Unknown")
-                        case .restrictedContent:
-                            print("Restricted content")
-                        case .unsupportedContentType:
-                            print("Unsupported content type")
-                        case .locked:
-                            print("Locked")
-                        }
-                    case .templateError:
-                        print("Template error")
+    
+    // Function to call /files/list_folder and /files/list_folder/continue
+    func getFoldersAndFiles() async throws {
+        do {
+            let response = try await client?.files.listFolder(path: "", recursive: true, includeDeleted: false).response()
+            self.metadataItems = self.loopThroughEntries(response: response!)
+            // For testing: the while loop is set to stop when counter reaches < 5
+            // This condition (counter < 5) can be removed to retrieve ALL files and folders
+            while (self.hasMore && self.counter < 5) {
+                self.counter += 1
+                let response = try await client?.files.listFolderContinue(cursor: self.cursor).response()
+                
+                self.metadataItems.append(contentsOf: self.loopThroughEntries(response: response!))
+            }
+        } catch {
+            switch error as? CallError<Files.ListFolderError> {
+            case .routeError(let boxed, _, _, let requestId):
+                print("RouteError:[\(String(describing: requestId))]:")
+                
+                switch boxed.unboxed as Files.ListFolderError {
+                case .path(let lookupError):
+                    switch lookupError {
+                    case .malformedPath:
+                        throw PathErrors.malformedPath(lookupError.description)
+                    case .notFound:
+                        throw PathErrors.notFound(lookupError.description)
+                    case .notFile:
+                        throw PathErrors.notFile(lookupError.description)
+                    case .notFolder:
+                        throw PathErrors.notFolder(lookupError.description)
                     case .other:
-                        print("Unknown")
+                        throw OtherErrors.other(lookupError.description)
+                    case .restrictedContent:
+                        throw PathErrors.restrictedContent(lookupError.description)
+                    case .unsupportedContentType:
+                        throw PathErrors.unsupportedContentType(lookupError.description)
+                    case .locked:
+                        throw PathErrors.locked(lookupError.description)
                     }
-                case .internalServerError:
-                    print("Internal server error")
-                case .badInputError:
-                    print("Bad input")
-                case .rateLimitError:
-                    print("Rate limit")
-                case .httpError:
-                    print("HTTP error")
-                case .authError:
-                    print("Authorization error")
-                case .accessError:
-                    print("Access error")
-                case .serializationError:
-                    print("Serialization error")
-                case .reconnectionError:
-                    print("Reconnection error")
-                case .clientError:
-                    print("Client error")
+                case .templateError:
+                    throw FolderErrors.templateError
+                case .other:
+                    throw OtherErrors.other("Unknown error")
                 }
+            case .internalServerError:
+                throw ServerErrors.internalServerError
+            case .badInputError:
+                throw ServerErrors.badInputError
+            case .rateLimitError:
+                throw ServerErrors.rateLimitError
+            case .httpError:
+                throw ServerErrors.httpError
+            case .authError:
+                throw ServerErrors.authError
+            case .accessError:
+                throw ServerErrors.accessError
+            case .serializationError:
+                throw ServerErrors.serializationError
+            case .reconnectionError:
+                throw ServerErrors.reconnectionError
+            case .clientError:
+                throw ServerErrors.clientError
+            case .none:
+                throw OtherErrors.other("Unknonw error")
             }
         }
+    }
+    
+    // Throwable errors
+    enum OtherErrors: Error {
+        case other(String)
+    }
+    
+    enum PathErrors: Error {
+        case malformedPath(String)
+        case notFound(String)
+        case notFile(String)
+        case notFolder(String)
+        case restrictedContent(String)
+        case unsupportedContentType(String)
+        case locked(String)
+    }
+    
+    enum FolderErrors: Error {
+        case templateError
+    }
+    
+    enum ServerErrors: Error {
+        case internalServerError
+        case badInputError
+        case rateLimitError
+        case httpError
+        case authError
+        case accessError
+        case serializationError
+        case reconnectionError
+        case clientError
     }
 }
