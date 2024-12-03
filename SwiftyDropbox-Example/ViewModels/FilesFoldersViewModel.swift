@@ -117,7 +117,7 @@ class FilesFoldersViewModel: ObservableObject {
         case other(String)
     }
     
-    enum PathErrors: Error {
+    enum PathErrors: Error {    
         case malformedPath(String)
         case notFound(String)
         case notFile(String)
