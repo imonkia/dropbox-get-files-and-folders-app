@@ -107,7 +107,7 @@ class FilesFoldersViewModel: ObservableObject {
             case .clientError:
                 throw ServerErrors.clientError
             case .none:
-                throw OtherErrors.other("Unknonw error")
+                throw OtherErrors.other("Unknown error")
             }
         }
     }

@@ -65,7 +65,7 @@ struct FilesFoldersView: View {
                         showAlert = true
                         print(errorMessage)
                     } catch FilesFoldersViewModel.OtherErrors.other(let errorMessage) {
-                        populateAlertContent(title: "Error", message: "Unknonw error occurred")
+                        populateAlertContent(title: "Error", message: "Unknown error occurred")
                         print(errorMessage)
                     }
                 }
