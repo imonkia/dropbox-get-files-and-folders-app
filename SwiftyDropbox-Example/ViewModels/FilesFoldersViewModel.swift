@@ -12,6 +12,7 @@ import SwiftyDropbox
 struct MetadataItem: Identifiable, Hashable {
     let id: String
     let pathLower: String
+    var isDeleted: Bool? = false
 }
 
 // DBX client instance
@@ -37,6 +38,9 @@ class FilesFoldersViewModel: ObservableObject {
                 return MetadataItem(id: folderMetadata.id, pathLower: folderMetadata.pathLower ?? "")
             } else if let fileMetadata = entry as? Files.FileMetadata {
                 return MetadataItem(id: fileMetadata.id, pathLower: fileMetadata.pathLower ?? "")
+            } else if let deletedMetadata = entry as? Files.DeletedMetadata {
+                // if "includeDeleted" is set to true
+                return MetadataItem(id: "unknown", pathLower: deletedMetadata.pathLower ?? "", isDeleted: true)
             } else {
                 return MetadataItem(id: "unknown", pathLower: entry.pathLower ?? "")
             }
@@ -117,7 +121,7 @@ class FilesFoldersViewModel: ObservableObject {
         case other(String)
     }
     
-    enum PathErrors: Error {    
+    enum PathErrors: Error {
         case malformedPath(String)
         case notFound(String)
         case notFile(String)

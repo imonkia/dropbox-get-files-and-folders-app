@@ -24,6 +24,8 @@ struct FilesFoldersView: View {
                 metadataItem in
                 VStack(alignment: .leading) {
                     Text(metadataItem.pathLower)
+                        .strikethrough(metadataItem.isDeleted ?? false)
+                        .foregroundStyle(metadataItem.isDeleted! ? Color.gray : Color.black)
                         .font(.system(size: 14))
                 }
             }
