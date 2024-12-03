@@ -1,0 +1,461 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD17BD2B2CF1501900594E78 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = DD17BD2A2CF1501900594E78 /* AlertToast */; };
+		DD5653A22CCAB9700098A132 /* SwiftyDropbox_ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5653A12CCAB9700098A132 /* SwiftyDropbox_ExampleApp.swift */; };
+		DD5653A42CCAB9700098A132 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5653A32CCAB9700098A132 /* ContentView.swift */; };
+		DD5653A62CCAB9710098A132 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD5653A52CCAB9710098A132 /* Assets.xcassets */; };
+		DD5653A92CCAB9710098A132 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD5653A82CCAB9710098A132 /* Preview Assets.xcassets */; };
+		DD5653B12CCABC370098A132 /* SwiftyDropbox in Frameworks */ = {isa = PBXBuildFile; productRef = DD5653B02CCABC370098A132 /* SwiftyDropbox */; };
+		DD5653B32CCABC370098A132 /* SwiftyDropboxObjC in Frameworks */ = {isa = PBXBuildFile; productRef = DD5653B22CCABC370098A132 /* SwiftyDropboxObjC */; };
+		DD5653B72CCABE030098A132 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5653B62CCABE030098A132 /* Environment.swift */; };
+		DD5653C62CCAEAAD0098A132 /* FilesFoldersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5653C52CCAEAAD0098A132 /* FilesFoldersView.swift */; };
+		DD5A2C1D2CED12FB00D43793 /* SwiftyDropbox in Frameworks */ = {isa = PBXBuildFile; productRef = DD5A2C1C2CED12FB00D43793 /* SwiftyDropbox */; };
+		DD5A2C1F2CED12FB00D43793 /* SwiftyDropboxObjC in Frameworks */ = {isa = PBXBuildFile; productRef = DD5A2C1E2CED12FB00D43793 /* SwiftyDropboxObjC */; };
+		DDD3FB272CE7CF2E00481EEA /* FilesFoldersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD3FB262CE7CF2E00481EEA /* FilesFoldersViewModel.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DD56539E2CCAB9700098A132 /* SwiftyDropbox-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftyDropbox-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD5653A12CCAB9700098A132 /* SwiftyDropbox_ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyDropbox_ExampleApp.swift; sourceTree = "<group>"; };
+		DD5653A32CCAB9700098A132 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DD5653A52CCAB9710098A132 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD5653A82CCAB9710098A132 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DD5653B42CCABC990098A132 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		DD5653B62CCABE030098A132 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		DD5653C52CCAEAAD0098A132 /* FilesFoldersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesFoldersView.swift; sourceTree = "<group>"; };
+		DD5A2C142CEBF01500D43793 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "SwiftyDropbox-Example/Info.plist"; sourceTree = SOURCE_ROOT; };
+		DD5E8D782CEBC4E20075C694 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DDD3FB262CE7CF2E00481EEA /* FilesFoldersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesFoldersViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD56539B2CCAB9700098A132 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD5653B12CCABC370098A132 /* SwiftyDropbox in Frameworks */,
+				DD5653B32CCABC370098A132 /* SwiftyDropboxObjC in Frameworks */,
+				DD5A2C1D2CED12FB00D43793 /* SwiftyDropbox in Frameworks */,
+				DD17BD2B2CF1501900594E78 /* AlertToast in Frameworks */,
+				DD5A2C1F2CED12FB00D43793 /* SwiftyDropboxObjC in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD55A76F2CED24FA007F5DD6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD5653A32CCAB9700098A132 /* ContentView.swift */,
+				DD5653C52CCAEAAD0098A132 /* FilesFoldersView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DD5653952CCAB9700098A132 = {
+			isa = PBXGroup;
+			children = (
+				DD5E8D782CEBC4E20075C694 /* README.md */,
+				DD5653A02CCAB9700098A132 /* SwiftyDropbox-Example */,
+				DD56539F2CCAB9700098A132 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD56539F2CCAB9700098A132 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD56539E2CCAB9700098A132 /* SwiftyDropbox-Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD5653A02CCAB9700098A132 /* SwiftyDropbox-Example */ = {
+			isa = PBXGroup;
+			children = (
+				DD55A76F2CED24FA007F5DD6 /* Views */,
+				DD5A2C142CEBF01500D43793 /* Info.plist */,
+				DD5653BB2CCABFAE0098A132 /* ViewModels */,
+				DD5653B92CCABF710098A132 /* App */,
+				DD5653A52CCAB9710098A132 /* Assets.xcassets */,
+				DD5653A72CCAB9710098A132 /* Preview Content */,
+				DD5653B42CCABC990098A132 /* Config.xcconfig */,
+				DD5653B62CCABE030098A132 /* Environment.swift */,
+			);
+			path = "SwiftyDropbox-Example";
+			sourceTree = "<group>";
+		};
+		DD5653A72CCAB9710098A132 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DD5653A82CCAB9710098A132 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DD5653B92CCABF710098A132 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				DD5653A12CCAB9700098A132 /* SwiftyDropbox_ExampleApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DD5653BB2CCABFAE0098A132 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DDD3FB262CE7CF2E00481EEA /* FilesFoldersViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD56539D2CCAB9700098A132 /* SwiftyDropbox-Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD5653AC2CCAB9710098A132 /* Build configuration list for PBXNativeTarget "SwiftyDropbox-Example" */;
+			buildPhases = (
+				DD56539A2CCAB9700098A132 /* Sources */,
+				DD56539B2CCAB9700098A132 /* Frameworks */,
+				DD56539C2CCAB9700098A132 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwiftyDropbox-Example";
+			packageProductDependencies = (
+				DD5653B02CCABC370098A132 /* SwiftyDropbox */,
+				DD5653B22CCABC370098A132 /* SwiftyDropboxObjC */,
+				DD5A2C1C2CED12FB00D43793 /* SwiftyDropbox */,
+				DD5A2C1E2CED12FB00D43793 /* SwiftyDropboxObjC */,
+				DD17BD2A2CF1501900594E78 /* AlertToast */,
+			);
+			productName = "SwiftyDropbox-Example";
+			productReference = DD56539E2CCAB9700098A132 /* SwiftyDropbox-Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD5653962CCAB9700098A132 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					DD56539D2CCAB9700098A132 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = DD5653992CCAB9700098A132 /* Build configuration list for PBXProject "SwiftyDropbox-Example" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD5653952CCAB9700098A132;
+			packageReferences = (
+				DD5653AF2CCABC370098A132 /* XCRemoteSwiftPackageReference "SwiftyDropbox" */,
+				DD17BD292CF1501900594E78 /* XCRemoteSwiftPackageReference "AlertToast" */,
+			);
+			productRefGroup = DD56539F2CCAB9700098A132 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD56539D2CCAB9700098A132 /* SwiftyDropbox-Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD56539C2CCAB9700098A132 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD5653A92CCAB9710098A132 /* Preview Assets.xcassets in Resources */,
+				DD5653A62CCAB9710098A132 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD56539A2CCAB9700098A132 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD5653A42CCAB9700098A132 /* ContentView.swift in Sources */,
+				DDD3FB272CE7CF2E00481EEA /* FilesFoldersViewModel.swift in Sources */,
+				DD5653B72CCABE030098A132 /* Environment.swift in Sources */,
+				DD5653C62CCAEAAD0098A132 /* FilesFoldersView.swift in Sources */,
+				DD5653A22CCAB9700098A132 /* SwiftyDropbox_ExampleApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DD5653AA2CCAB9710098A132 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD5653B42CCABC990098A132 /* Config.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DD5653AB2CCAB9710098A132 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD5653B42CCABC990098A132 /* Config.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD5653AD2CCAB9710098A132 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftyDropbox-Example/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftyDropbox-Example/Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dropbox.SwiftyDropbox-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD5653AE2CCAB9710098A132 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftyDropbox-Example/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftyDropbox-Example/Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "dropbox.SwiftyDropbox-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD5653992CCAB9700098A132 /* Build configuration list for PBXProject "SwiftyDropbox-Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD5653AA2CCAB9710098A132 /* Debug */,
+				DD5653AB2CCAB9710098A132 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD5653AC2CCAB9710098A132 /* Build configuration list for PBXNativeTarget "SwiftyDropbox-Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD5653AD2CCAB9710098A132 /* Debug */,
+				DD5653AE2CCAB9710098A132 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DD17BD292CF1501900594E78 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.9;
+			};
+		};
+		DD5653AF2CCABC370098A132 /* XCRemoteSwiftPackageReference "SwiftyDropbox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dropbox/SwiftyDropbox.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DD17BD2A2CF1501900594E78 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD17BD292CF1501900594E78 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
+		DD5653B02CCABC370098A132 /* SwiftyDropbox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD5653AF2CCABC370098A132 /* XCRemoteSwiftPackageReference "SwiftyDropbox" */;
+			productName = SwiftyDropbox;
+		};
+		DD5653B22CCABC370098A132 /* SwiftyDropboxObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD5653AF2CCABC370098A132 /* XCRemoteSwiftPackageReference "SwiftyDropbox" */;
+			productName = SwiftyDropboxObjC;
+		};
+		DD5A2C1C2CED12FB00D43793 /* SwiftyDropbox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD5653AF2CCABC370098A132 /* XCRemoteSwiftPackageReference "SwiftyDropbox" */;
+			productName = SwiftyDropbox;
+		};
+		DD5A2C1E2CED12FB00D43793 /* SwiftyDropboxObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD5653AF2CCABC370098A132 /* XCRemoteSwiftPackageReference "SwiftyDropbox" */;
+			productName = SwiftyDropboxObjC;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = DD5653962CCAB9700098A132 /* Project object */;
+}
