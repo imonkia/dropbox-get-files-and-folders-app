@@ -8,10 +8,10 @@
 import SwiftUI
 import SwiftyDropbox
 
-// Custom struct to store the UID and "pathLower" properties of each entry
+// Custom struct to store the UID and "pathDisplay" properties of each entry
 struct MetadataItem: Identifiable, Hashable {
     let id: String
-    let pathLower: String
+    let pathDisplay: String
     var isDeleted: Bool? = false
 }
 
@@ -35,14 +35,14 @@ class FilesFoldersViewModel: ObservableObject {
         cursor = !response.cursor.isEmpty ? response.cursor : ""
         metadataItemsTemp = response.entries.map { entry -> MetadataItem in
             if let folderMetadata = entry as? Files.FolderMetadata {
-                return MetadataItem(id: folderMetadata.id, pathLower: folderMetadata.pathLower ?? "")
+                return MetadataItem(id: folderMetadata.id, pathDisplay: folderMetadata.pathDisplay ?? "")
             } else if let fileMetadata = entry as? Files.FileMetadata {
-                return MetadataItem(id: fileMetadata.id, pathLower: fileMetadata.pathLower ?? "")
+                return MetadataItem(id: fileMetadata.id, pathDisplay: fileMetadata.pathDisplay ?? "")
             } else if let deletedMetadata = entry as? Files.DeletedMetadata {
                 // if "includeDeleted" is set to true
-                return MetadataItem(id: "unknown", pathLower: deletedMetadata.pathLower ?? "", isDeleted: true)
+                return MetadataItem(id: "unknown", pathDisplay: deletedMetadata.pathDisplay ?? "", isDeleted: true)
             } else {
-                return MetadataItem(id: "unknown", pathLower: entry.pathLower ?? "")
+                return MetadataItem(id: "unknown", pathDisplay: entry.pathDisplay ?? "")
             }
         }
         

@@ -23,7 +23,7 @@ struct FilesFoldersView: View {
             List(Array(Set(filesFoldersViewModel.metadataItems)), id: \.id) {
                 metadataItem in
                 VStack(alignment: .leading) {
-                    Text(metadataItem.pathLower)
+                    Text(metadataItem.pathDisplay)
                         .strikethrough(metadataItem.isDeleted ?? false)
                         .foregroundStyle(metadataItem.isDeleted! ? Color.gray : Color.black)
                         .font(.system(size: 14))
