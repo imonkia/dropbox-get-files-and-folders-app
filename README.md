@@ -7,7 +7,7 @@ This basic iOS app demonstrates how to access a team space using the `Dropbox-AP
 
 For more information on Dropbox teams configuration, team file content management and interaction please refer to [DBX Team Files Guide](https://developers.dropbox.com/dbx-team-files-guide).
 
-Becuase of the simplicity of this app, AppDelegate and SceneDelegate are not implemented, but rather the Dropbox client is instantiated when the app is first initialized.
+Because of the simplicity of this app, AppDelegate and SceneDelegate are not implemented, but rather the Dropbox client is instantiated when the app is first initialized.
 
 ## How to use
 
