@@ -1,4 +1,4 @@
-# Dropbox Get Files and Folders Example
+# Dropbox Get Files and Folders (withPathRoot) Example
 
 > [!NOTE]
 > This is a SwiftUI app that uses the [official Dropbox SDK (SwiftyDropbox)](https://github.com/dropbox/SwiftyDropbox).
