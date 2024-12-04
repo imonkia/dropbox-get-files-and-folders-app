@@ -65,7 +65,7 @@ struct ContentView: View {
             }
         }
     }
-    // Function to handle DBX authentication
+    // Function to handle authorization flow
     func dbxLogin() {
         let scopeRequest = ScopeRequest(scopeType: .user, scopes: [], includeGrantedScopes: false)
         DropboxClientsManager.authorizeFromControllerV2(

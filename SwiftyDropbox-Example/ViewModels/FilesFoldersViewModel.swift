@@ -15,14 +15,14 @@ struct MetadataItem: Identifiable, Hashable {
     var isDeleted: Bool? = false
 }
 
-// DBX client instance
-let client = DropboxClientsManager.authorizedClient
-
 
 @MainActor
 class FilesFoldersViewModel: ObservableObject {
     // Obersvable property
     @Published var metadataItems: [MetadataItem] = []
+    
+    // DBX client instance
+    var dbxClient = DropboxClientsManager.authorizedClient
     
     private var hasMore: Bool = false
     private var cursor: String = ""
@@ -52,13 +52,21 @@ class FilesFoldersViewModel: ObservableObject {
     // Function to call /files/list_folder and /files/list_folder/continue
     func getFoldersAndFiles() async throws {
         do {
-            let response = try await client?.files.listFolder(path: "", recursive: true, includeDeleted: false).response()
+            // Get the current user's account info
+            let accountInfo = try await dbxClient?.users.getCurrentAccount().response()
+            // Retrieving the user's rootNameSpaceId
+            let rootNameSpaceId = accountInfo!.rootInfo.rootNamespaceId
+            if !rootNameSpaceId.isEmpty {
+                // Initialize a DBX client instance with the current user's rootNameSpaceId
+                self.dbxClient = DropboxClientsManager.authorizedClient?.withPathRoot(.root(rootNameSpaceId))
+            }
+            let response = try await dbxClient?.files.listFolder(path: "", recursive: true, includeDeleted: false).response()
             self.metadataItems = self.loopThroughEntries(response: response!)
             // For testing: the while loop is set to stop when counter reaches < 5
             // This condition (counter < 5) can be removed to retrieve ALL files and folders
             while (self.hasMore && self.counter < 5) {
                 self.counter += 1
-                let response = try await client?.files.listFolderContinue(cursor: self.cursor).response()
+                let response = try await dbxClient?.files.listFolderContinue(cursor: self.cursor).response()
                 
                 self.metadataItems.append(contentsOf: self.loopThroughEntries(response: response!))
             }
