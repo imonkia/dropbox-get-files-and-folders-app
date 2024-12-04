@@ -22,7 +22,7 @@ class FilesFoldersViewModel: ObservableObject {
     @Published var metadataItems: [MetadataItem] = []
     
     // DBX client instance
-    var dbxClient = DropboxClientsManager.authorizedClient
+    private var dbxClient = DropboxClientsManager.authorizedClient
     
     private var hasMore: Bool = false
     private var cursor: String = ""
@@ -57,7 +57,7 @@ class FilesFoldersViewModel: ObservableObject {
             // Retrieving the user's rootNameSpaceId
             let rootNameSpaceId = accountInfo!.rootInfo.rootNamespaceId
             if !rootNameSpaceId.isEmpty {
-                // Initialize a DBX client instance with the current user's rootNameSpaceId
+                // Update the DBX client instance to use .withPathRoot with the user's rootNameSpaceId
                 self.dbxClient = DropboxClientsManager.authorizedClient?.withPathRoot(.root(rootNameSpaceId))
             }
             let response = try await dbxClient?.files.listFolder(path: "", recursive: true, includeDeleted: false).response()
