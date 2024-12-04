@@ -12,7 +12,7 @@ import SwiftyDropbox
 struct SwiftyDropbox_ExampleApp: App {
     init() {
         // Instantiate DBX client
-        DropboxClientsManager.setupWithAppKey(Environment.appKey)
+        DropboxClientsManager.setupWithAppKey("APP_KEY")
     }
     
     var body: some Scene {
