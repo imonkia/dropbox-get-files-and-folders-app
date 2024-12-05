@@ -26,7 +26,6 @@ class FilesFoldersViewModel: ObservableObject {
     
     private var hasMore: Bool = false
     private var cursor: String = ""
-    private var counter: Int = 0
     private var metadataItemsTemp: [MetadataItem] = []
 
     // Function to loop through received entries from the API
@@ -62,10 +61,7 @@ class FilesFoldersViewModel: ObservableObject {
             }
             let response = try await dbxClient?.files.listFolder(path: "", recursive: true, includeDeleted: false).response()
             self.metadataItems = self.loopThroughEntries(response: response!)
-            // For testing: the while loop is set to stop when counter reaches < 5
-            // This condition (counter < 5) can be removed to retrieve ALL files and folders
-            while (self.hasMore && self.counter < 5) {
-                self.counter += 1
+            while (self.hasMore) {
                 let response = try await dbxClient?.files.listFolderContinue(cursor: self.cursor).response()
                 
                 self.metadataItems.append(contentsOf: self.loopThroughEntries(response: response!))
