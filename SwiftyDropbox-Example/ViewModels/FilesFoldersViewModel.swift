@@ -67,11 +67,11 @@ class FilesFoldersViewModel: ObservableObject {
                 self.metadataItems.append(contentsOf: self.loopThroughEntries(response: response!))
             }
         } catch {
-            switch error as? CallError<Files.ListFolderError> {
+            switch error as? CallError<Any> {
             case .routeError(let boxed, _, _, let requestId):
                 print("RouteError:[\(String(describing: requestId))]:")
                 
-                switch boxed.unboxed as Files.ListFolderError {
+                switch boxed.unboxed as! Files.ListFolderError {
                 case .path(let lookupError):
                     switch lookupError {
                     case .malformedPath:
@@ -94,16 +94,16 @@ class FilesFoldersViewModel: ObservableObject {
                 case .templateError:
                     throw FolderErrors.templateError
                 case .other:
-                    throw OtherErrors.other("Unknown error")
+                    throw OtherErrors.other("Unknown route error.")
                 }
-            case .internalServerError:
-                throw ServerErrors.internalServerError
+            case .internalServerError(let code, let message, let requestId):
+                throw ServerErrors.internalServerError("Internal Server Error: \(String(describing: code)): \(String(describing: message))\nDropbox Request ID: \(String(describing: requestId))")
             case .badInputError:
                 throw ServerErrors.badInputError
             case .rateLimitError:
                 throw ServerErrors.rateLimitError
-            case .httpError:
-                throw ServerErrors.httpError
+            case .httpError(let code, let message, let requestId):
+                throw ServerErrors.httpError("HTTP Error \(String(describing: code)): \(String(describing: message))\nDropbox Request ID: \(String(describing: requestId))")
             case .authError:
                 throw ServerErrors.authError
             case .accessError:
@@ -115,7 +115,8 @@ class FilesFoldersViewModel: ObservableObject {
             case .clientError:
                 throw ServerErrors.clientError
             case .none:
-                throw OtherErrors.other("Unknown error")
+                throw OtherErrors.other("\(String(describing: error))")
+            
             }
         }
     }
@@ -140,10 +141,10 @@ class FilesFoldersViewModel: ObservableObject {
     }
     
     enum ServerErrors: Error {
-        case internalServerError
+        case internalServerError(String)
         case badInputError
         case rateLimitError
-        case httpError
+        case httpError(String)
         case authError
         case accessError
         case serializationError
